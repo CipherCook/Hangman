@@ -1,6 +1,7 @@
 # Hangman
 Cs proj by Prongs Padfoot and Moony
 Work division - Guy 1 : GUI (hangman ka animation + letters) + some hangman backend logic
+                
                 Guy2:  Scoring system + middle man connectivity
                 Guy 3 : SQL queries + logic ................................................ ^ requires discussion
 TO DO-
@@ -9,4 +10,4 @@ framework can be created and each guy creates his functions acc to the inputs or
 (pref on call)
 
 2. Add everything on Github whenever done- (very easy just just go to pull request or if you are sure check upload directly your code)
-For changes made- removed code appears in red added code appears in green looks very cool very convenient
+For changes made- (in preview changes) removed code appears in red added code appears in green looks very cool very convenient
