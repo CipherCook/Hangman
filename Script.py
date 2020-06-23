@@ -1,3 +1,4 @@
+#add functions for now ignore the dullness
 import tkinter as tk
 import random
 deathstate = 1
@@ -36,12 +37,34 @@ def get_secret_word():
 secret= get_secret_word()
 turns = 6
 fails=0
-while turns>0:
-    char=input("please enter a character")
-    for i in word:
-        if i==char:
-            print(char)
-    
+def getvowels(secret):
+    vow=['a','e','i','o','u']
+    for i in secret:
+        if i in vow:
+            print(i, end=" ")
+        else:
+            print("__", end=" ")
+        print(" ", end= " ")
 
+    print("\n")
+def printword(secret, lastword, guess):
+    print()# TO DO such that it adds the guessed character to lastword if guess matches with secret and output is our new lastword
+getvowels(secret)
+p1=0
+p2=0
+while (turns>0):
+    guess= input("enter a character")
+    if guess in secret:
+        p1+=5
+        print(";)")
+        printword(secret, secret, guess)#to change
+    else:
+        p1-=1
+        deathstate+=1
+    turns-=1
+print("you scored ", p1)
+        
+         
+     
         
         
