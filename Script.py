@@ -148,21 +148,21 @@ while (turns>0):
         deathstate+=1
         hang(deathstate)
         turns-=1
-if p1 = 0:
+if p1 == 0:
     print("You lost, NO POINTS FOR YOU :(")
-elif p1 = 1:
+elif p1 == 1:
     print("Making so many mistakes cost you, cost = 6 points to be exact \n" ,"final points = 1")
-elif p1 = 2:
+elif p1 == 2:
     print("Making so many mistakes cost you, cost = 5 points to be exact \n" ,"final points = 2")
-elif p1 = 3:
+elif p1 == 3:
     print("Making so many mistakes cost you, cost = 4 points to be exact \n", "final points = 3")
-elif p1 = 4:
+elif p1 == 4:
     print("only 3 wrong guesses.... impressive \n" ,"final points = 4")
-elif p1 = 5:
+elif p1 == 5:
     print("only 2 wrong guesses.... impressive \n", "final points = 5")
-elif p1 = 6:
+elif p1 == 6:
     print("only 1 wrong guess.... Bravo! \n", "final points = 6")
-elif p1 = 7:
+elif p1 == 7:
     print("Legend said it cudnt be done, yet here you are making no mistakes ......\n", "YOU ARE AWARDED (7+1) POINTS :)" )
 #made lil changes :)        
          
