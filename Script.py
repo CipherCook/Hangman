@@ -63,6 +63,7 @@ while (turns>0):
         deathstate+=1
     turns-=1
 print("you scored ", p1)
+#nice
         
          
      
