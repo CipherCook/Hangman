@@ -85,20 +85,6 @@ def hang(deathstate):
         
         m.ht()
 
-
-def display1():
-    #tkinter code for starting animation
-    while gameon==True:
-        if deathstate==1:
-            #tk for hangman state 1
-            print()
-            #proceed similarly for 7 states of death of hangman
-        
-    if gameon==False:
-        print()
-        #ending display
-        #restart?
-
 #welcoming the user
 name1 = input("Player 1, What is your name?")
 
@@ -108,8 +94,6 @@ name2= input("Player 2, what is your name?")
 print("hello  ",name2)
 time.sleep(1)
 print ("Start guessing...")
-#call display 1 bumblebee
-gameon = True
 
 def get_secret_word():
 
