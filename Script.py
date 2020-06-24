@@ -117,6 +117,8 @@ def get_secret_word():
     pick_word = random.randint(0, len(random_wordbank)-1) #choose a random integer in range of wordbank length to use as the secret word
     return random_wordbank[pick_word]
 
+secret= get_secret_word()
+
 def getvowels(secret):
     vow=['a','e','i','o','u']
     for i in secret:
@@ -129,27 +131,40 @@ def getvowels(secret):
     
 def printword(secret, lastword, guess):
     print()# TO DO such that it adds the guessed character to lastword if guess matches with secret and output is our new lastword
-
-secret= get_secret_word()
+    
 turns = 7
-fails=0    
 getvowels(secret)
-p1=0
-p2=0
-
+p1=7
+p2=7
+#if a movie has a longer title the person guessing wud gain unnecessary adv on the points, so, instead, counting number of mistakes.
+#hence, the person who guesses the movie with fewer mistakes gets more points!
 while (turns>0):
     guess= input("enter a character")
     if guess in secret:
-        p1+=5
         print(";)")
         printword(secret, secret, guess)#to change
     else:
         p1-=1
         deathstate+=1
         hang(deathstate)
-    turns-=1
-print("you scored ", p1)
-        
+        turns-=1
+if p1 = 0:
+    print("You lost, NO POINTS FOR YOU :(")
+elif p1 = 1:
+    print("Making so many mistakes cost you, cost = 6 points to be exact \n" ,"final points = 1")
+elif p1 = 2:
+    print("Making so many mistakes cost you, cost = 5 points to be exact \n" ,"final points = 2")
+elif p1 = 3:
+    print("Making so many mistakes cost you, cost = 4 points to be exact \n", "final points = 3")
+elif p1 = 4:
+    print("only 3 wrong guesses.... impressive \n" ,"final points = 4")
+elif p1 = 5:
+    print("only 2 wrong guesses.... impressive \n", "final points = 5")
+elif p1 = 6:
+    print("only 1 wrong guess.... Bravo! \n", "final points = 6")
+elif p1 = 7:
+    print("Legend said it cudnt be done, yet here you are making no mistakes ......\n", "YOU ARE AWARDED (7+1) POINTS :)" )
+#made lil changes :)        
          
      
         
