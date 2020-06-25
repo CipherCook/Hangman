@@ -104,8 +104,6 @@ def main(secret,player):
             print("ONLY 1 LETTER can be guessed @ once!!")
         elif guess not in ('b','c','d','f','g','h','j','k','l','m','n','p','q','r','s','t','v','w','x','y','z','1','2','3','4','5','6','7','8','9','0'):
             print("You can only guess using EITHER consonants OR numbers!")
-        elif guess in guesses:
-            print("You Have already tried guessing that, try something else!!")
         else:
             if guess in secret:
                 print("You Guessed it!")
