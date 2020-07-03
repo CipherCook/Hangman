@@ -279,10 +279,8 @@ while(flag==1):
         print("see ya later")
 
 # vowelonly as amovie name
-# no. of ives remaining
-# looped the entire thing
-# cannot repeat inputs
-# wth was turtle.looop?
+# case sensitivity
+# audio and bgcolor for deaths
 # grammar typos
 
 # round1 completed!
