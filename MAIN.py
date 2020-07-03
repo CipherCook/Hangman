@@ -1,17 +1,20 @@
 import tkinter as tk
 import time
 import turtle
+import getpass
+
 j = turtle.Screen()
+
 
 # ALL FUNCTIONS:
 
 #HANGMAN animation
 def hang(deathstate):
-   
     m = turtle.Turtle()
     j.bgcolor("yellow")
     m.color("blue")
     m.speed(10)
+   
     
     
     if deathstate == 1:
@@ -96,6 +99,7 @@ def main(secret,player):
     while (turns>0):
         guess= input("Enter a character ")
         guesses += str(guess)
+        
         vow=('a','e','i','o','u')
         if guess in vow:
             print("all vowels are already disclosed, try something else!!")
@@ -141,21 +145,22 @@ def main(secret,player):
                     print("only YOU can save HIM.....")
                 hang(deathstate)
     if player == 0:
-        print("\n\nYou lost, NO POINTS FOR YOU :(")
+        print("\n\nYou lost, NO POINTS FOR YOU :( \n The name of the movie was :", secret)
     elif player == 1:
-        print("\n\nMaking so many mistakes cost you, cost = 6 points to be exact \n" ,"final point = 1")
+        print("\n\nMaking so many mistakes cost you, cost = 6 points to be exact \n" ,"Final Point = 1")
     elif player == 2:
-        print("\n\nMaking so many mistakes cost you, cost = 5 points to be exact \n" ,"final points = 2")
+        print("\n\nMaking so many mistakes cost you, cost = 5 points to be exact \n" ,"Final Points = 2")
     elif player == 3:
-        print("\n\nMaking so many mistakes cost you, cost = 4 points to be exact \n", "final points = 3")
+        print("\n\nMaking so many mistakes cost you, cost = 4 points to be exact \n", "Final Points = 3")
     elif player == 4:
-        print("\n\nonly 3 wrong guesses.... impressive \n" ,"final points = 4")
+        print("\n\nonly 3 wrong guesses.... impressive \n" ,"Final Points = 4")
     elif player == 5:
-        print("\n\nonly 2 wrong guesses.... impressive \n", "final points = 5")
+        print("\n\nonly 2 wrong guesses.... impressive \n", "Final Points = 5")
     elif player == 6:
-        print("\n\nONLY 1 MISTAKE?!?! Bravo! \n", "final points = 6")
+        print("\n\nONLY 1 MISTAKE?!?! Bravo! \n", "Final Points = 6")
     elif player == 7:
-        print("\n\nLegend said it cudnt be done, yet here you are making HISTORY ......\n", "YOU ARE AWARDED 7 POINTS , HECK YOU SHALL GET 8!!!:)" )
+        print("\n\nLegend said it cudnt be done, yet here you are making HISTORY ......\n", "YOU ARE AWARDED 7 POINTS , HECK FINAL POINTS = 8,:)" )
+
         
 #convert movie into code   
 def getvowels(secret):
@@ -178,42 +183,74 @@ def getvowels(secret):
 name1 = input("Player 1, What is your name? ")
 print("Hello ", name1)
 
-name2= input("Player 2, what is your name? ")
+name2= input("Player 2, What is your name? ")
 print("Hello  ",name2)
 
 print(name1,", You have been awarded the chance to go first!")
-secret1 = input("Enter a Movie ")
+a = 0
 
+while a == 0:
+    
+    b = ""
+    secret1 = getpass.getpass("Enter a movie: \n*the movie name will remain hidden due to obvious reasons!!* \n ")
+    
+    for i in secret1:
+        
+        if i not in ("abcdefghijklmnopqrstuvwxyz 0123456789"):
+            print("ENTER ONLY ALPHABETS OR NUMBERS, CHARACTERS ARE NOT ALLOWED! /n")
+            break
+        else:
+            b += i
+            
+    if len(secret1) == len(b):
+        a =  1
+    else:
+        a = 0
+        
 print ("Your time to guess the movie Begins!!", name2)
 
 p1=7
-
 main(secret1,p1)
+
 #p1's turn has ended!
 
 #p2 is starting now
 print("\n\nNow its your turn,", name2, " show ", name1, " Whose the boss!!!")
 
-secret2 = input("Enter a Movie ")
+a = 0
+
+while a == 0:
+    
+    b = ""
+    secret2 = getpass.getpass("Enter a movie: \n*the movie name will remain hidden due to obvious reasons!!* \n ")
+    
+    for i in secret2:
+        
+        if i not in ("abcdefghijklmnopqrstuvwxyz 0123456789"):
+            print("ENTER ONLY ALPHABETS OR NUMBERS, CHARACTERS ARE NOT ALLOWED! /n")
+            break
+        else:
+            b += i
+            
+    if len(secret2) == len(b):
+        a =  1
+    else:
+        a = 0
+print ("Your time to guess the movie Begins!!", name1)
 
 j.clear()
 
-print ("Your time to guess the movie Begins!!", name1)
-
 p2 = 7
-
 main(secret2,p2)
+
 #p2's turn has ended!
+
+turtle.mainloop()
+
 #round1 completed!
 
-#MINOR ERRORS : 1)HIDING MOVIE NAME,ONCE TAKEN FROM ONE PLAYER
-
-#MAJOR DISCREPANSIES : 1)IMPORTANT DATA TO BE TRANSFERRED TO MYSQL , 2)[TIME ELEMENT, HINT ELEMENT, ALL OF TKINTER] = LEFT
-
+#IMPORTANT DATA TO BE TRANSFERRED TO MYSQL
+#[TIME ELEMENT, HINT ELEMENT, ALL OF TKINTER] = LEFT
 #THIS CODE AFTER COMPLETION IS THEN TO BE LOOPED
-
 #DEFINITELY NOT MAKING SO MANY NOTES SO WE CAN REACH 500 LINES OF CODE FASTER. DEFINITELY, MAYBE.
-
-#You guyz look into some of them, ill look into some of them, Cool(6)
-
 
