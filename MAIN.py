@@ -1,15 +1,14 @@
 import tkinter as tk
 import time
-
+import turtle
+j = turtle.Screen()
 
 # ALL FUNCTIONS:
 
 #HANGMAN animation
 def hang(deathstate):
-    import turtle
    
     m = turtle.Turtle()
-    j = turtle.Screen()
     j.bgcolor("yellow")
     m.color("blue")
     m.speed(10)
@@ -197,6 +196,8 @@ print("\n\nNow its your turn,", name2, " show ", name1, " Whose the boss!!!")
 
 secret2 = input("Enter a Movie ")
 
+j.clear()
+
 print ("Your time to guess the movie Begins!!", name1)
 
 p2 = 7
@@ -205,7 +206,7 @@ main(secret2,p2)
 #p2's turn has ended!
 #round1 completed!
 
-#MINOR ERRORS : 1)RELAUNCHING TURTLE FOR PLAYER 2, 2)HIDING MOVIE NAME,ONCE TAKEN FROM ONE PLAYER
+#MINOR ERRORS : 1)HIDING MOVIE NAME,ONCE TAKEN FROM ONE PLAYER
 
 #MAJOR DISCREPANSIES : 1)IMPORTANT DATA TO BE TRANSFERRED TO MYSQL , 2)[TIME ELEMENT, HINT ELEMENT, ALL OF TKINTER] = LEFT
 
