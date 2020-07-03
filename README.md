@@ -1,9 +1,7 @@
 # Hangman
 Cs proj by Prongs Padfoot and Moony
-TO DO- 1) Hide name of movie once taken.
-       2)Turtle Relaunch for P2(i'll look into this one)
-       3)tkinter animation
-       4)Time element
-       5)Hint element
-       6)SQL connectivity
+TO DO- 1)tkinter animation
+       2)Time element
+       3)Hint element
+       4)SQL connectivity
 ~Moony
