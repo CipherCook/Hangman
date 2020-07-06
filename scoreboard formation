@@ -1,0 +1,56 @@
+import mysql.connector as mycon
+con=mycon.connect(host="local host",username="root",passwd="ayush",database="project")
+if con.is_connected():
+    print("database opened successfully")
+else:
+    print("error opening database")
+
+str1="create table student(Serial_No int primary key, Player Name varchar(30), Wins int, Losses int, Tie int, Hints_used int)"
+cur=con.cursor()
+cur.execute(str1)
+print("table created successfully")
+ 
+ # this is for table creation
+ 
+ #next code is for saving highscore data through a csv file kyunki ma'am ne bola tha ki voh bhi add karna hai somehow.
+ 
+def get_high_score():
+    high_score = 0
+ 
+    try:
+        high_score_file = open("high_score.txt", "r")
+        high_score = int(high_score_file.read())
+        high_score_file.close()
+        print("The high score is", high_score)
+    except IOError:
+
+        print("There is no high score yet.")
+    except ValueError:
+        print("I'm confused. Starting with no high score.")
+ 
+    return high_score
+ 
+ 
+def save_high_score(new_high_score):
+    try:
+        high_score_file = open("high_score.txt", "w")
+        high_score_file.write(str(new_high_score))
+        high_score_file.close()
+    except IOError:
+        print("Unable to save the high score.")
+ 
+ 
+def main():
+    high_score = get_high_score()
+    current_score = 0
+    try:
+        current_score = int(input("What is your score? "))
+    except ValueError:
+        print("I don't understand what you typed.")
+ 
+    
+    if current_score > high_score:
+        print("Yea! New high score!")
+        save_high_score(current_score)
+    else:
+        print("Better luck next time.")
