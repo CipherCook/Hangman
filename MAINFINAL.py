@@ -164,7 +164,7 @@ def main(secret,player):
         print("\n\nONLY 1 MISTAKE?!?! Bravo! \n", "Final Points = 6")
     elif player == 7:
         print("\n\nLegend said it cudnt be done, yet here you are making HISTORY ......\n", "YOU ARE AWARDED 7 POINTS , HECK FINAL POINTS = 8,:)" )
-
+    return player
         
 # convert movie into code   
 def getvowels(secret):
@@ -216,8 +216,8 @@ while(flag==1):
     print ("Your time to guess the movie Begins!!", name2)
 
     p1=7
-    main(secret1,p1)
-
+    points1=main(secret1,p1)
+    
     # p1's turn has ended!
 
     # p2 is starting now
@@ -247,16 +247,16 @@ while(flag==1):
     j.clear()
 
     p2 = 7
-    main(secret2,p2)
+    points2=main(secret2,p2)
 
     # p2's turn has ended!
     print("Let's see who won...")
     time.sleep(1)
     print("DRUMROLL................")
     time.sleep(5)
-    if(p1>p2):
+    if(points1>points2):
         print(name1," has won!")
-    elif(p2<p1):
+    elif(points2>points1):
         print(name2," has won!")
     else:
         print("you deserve another round because it looks like A TIE!")
