@@ -12,7 +12,8 @@ print("table created successfully")
  
  # this is for table creation
  
- #next code is for saving highscore data through a txt file kyunki ma'am ne bola tha ki voh bhi add karna hai somehow.
+ #next code is for saving highscore data through a txt file kyunki ma'am ne bola tha ki voh bhi add karna hai somehow.Yeh sirf functions hai.
+ #highscore wale code mein bas input daalne baaki hai warna code complete hai. Input wala part jab hojaaye usse bas add karna hai.
  
 def get_high_score():
     high_score = 0
