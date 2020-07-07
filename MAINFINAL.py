@@ -1,21 +1,15 @@
-import tkinter as tk
-import time
-import turtle
-import getpass
-
-j = turtle.Screen()
-
-
 # ALL FUNCTIONS:
 
 # HANGMAN animation
 def hang(deathstate):
     m = turtle.Turtle()
-    j.bgcolor("#ffcc00")
     m.color("blue")
-    m.speed(10)
+    m.speed(15)
 
     if deathstate == 1:
+
+        j.bgcolor("#ffe066")
+        m.color("blue")
 
         [m.pu(), m.setx(0), m.sety(0), m.pd()]
         [m.fd(100), m.rt(180), m.fd(50), m.rt(90), m.fd(180), m.rt(90)]
@@ -23,6 +17,10 @@ def hang(deathstate):
         m.ht()
 
     elif deathstate == 2:
+
+        j.bgcolor("#ffdb4c")
+        m.color("blue")
+        
         [m.pu(), m.setx(0), m.sety(0), m.pd()]
         [m.fd(100), m.rt(180), m.fd(50), m.rt(90), m.fd(180), m.rt(90)]
         [m.fd(100), m.rt(90), m.fd(40), m.rt(90)]
@@ -30,6 +28,10 @@ def hang(deathstate):
         m.ht()
 
     elif deathstate == 3:
+
+        j.bgcolor("#ffd119")
+        m.color("blue")
+        
         [m.pu(), m.setx(0), m.sety(0), m.pd()]
         [m.fd(100), m.rt(180), m.fd(50), m.rt(90), m.fd(180), m.rt(90)]
         [m.fd(100), m.rt(90), m.fd(40), m.rt(90)]
@@ -38,6 +40,10 @@ def hang(deathstate):
         m.ht()
 
     elif deathstate == 4:
+
+        j.bgcolor("#ffcc00")
+        m.color("blue")
+        
         [m.pu() , m.setx(0) , m.sety(0), m.pd()]
         [m.fd(100) , m.rt(180) , m.fd(50) , m.rt(90) , m.fd(180) , m.rt(90)]
         [m.fd(100) , m.rt(90) , m.fd(40) , m.rt(90)]
@@ -47,6 +53,10 @@ def hang(deathstate):
         m.ht()
 
     elif deathstate == 5:
+
+        j.bgcolor("#e5b700")
+        m.color("blue")
+        
         [m.pu() , m.setx(0) , m.sety(0) , m.pd()]
         [m.fd(100) , m.rt(180) , m.fd(50) , m.rt(90) , m.fd(180) , m.rt(90)]
         [m.fd(100) , m.rt(90) , m.fd(40) , m.rt(90)]
@@ -58,6 +68,10 @@ def hang(deathstate):
 
 
     elif deathstate == 6:
+
+        j.bgcolor("#cca300")
+        m.color("blue")
+        
         [m.pu() , m.setx(0) , m.sety(0) , m.pd()]
         [m.fd(100) , m.rt(180) , m.fd(50) , m.rt(90) , m.fd(180) , m.rt(90)]
         [m.fd(100) , m.rt(90) , m.fd(40) , m.rt(90)]
@@ -69,6 +83,9 @@ def hang(deathstate):
         m.ht()
 
     elif deathstate == 7:
+
+        j.bgcolor("#b28e00")
+        m.color("red")
         m.speed(20)
     
         [m.pu() , m.setx(0) , m.sety(0) , m.pd()]
@@ -83,10 +100,15 @@ def hang(deathstate):
         
         m.ht()
 
+        time.sleep(2)
+
+        j.bgcolor("black")
+        
+
 # Main Function
 def main(secret,player):
     getvowels(secret)
-    vow=('a','e','i','o','u')
+    vow=('A','E','I','O','U')
     while(secret in vow):
         print("Please enter a movie name with atleast one consonant")
         secret = input()
@@ -96,8 +118,7 @@ def main(secret,player):
 
     while (turns>0):
         guess= input("Enter a character ")
-        
-        
+        guess = guess.upper()
         
         if guess in vow:
             print("all vowels are already disclosed, try something else!!")
@@ -105,7 +126,7 @@ def main(secret,player):
             print("You have already tried this letter, Please try again")
         elif len(guess)!= 1:
             print("ONLY 1 LETTER can be guessed at once!!")
-        elif guess not in ('b','c','d','f','g','h','j','k','l','m','n','p','q','r','s','t','v','w','x','y','z','1','2','3','4','5','6','7','8','9','0'):
+        elif guess not in ('B','C','D','F','G','H','J','K','L','M','N','P','Q','R','S','T','V','W','X','Y','Z','0','1','2','3','4','5','6','7','8','9'):
             print("You can only guess using EITHER consonants OR numbers!")
         else:
             print('\n')
@@ -115,7 +136,7 @@ def main(secret,player):
                 print("You Guessed it!")
                 final=""
                 sec=""
-                add=('a','e','i','o','u')
+                add=('A','E','I','O','U')
                 for i in secret:
                     if i in add:
                         sec += i + " "
@@ -169,7 +190,7 @@ def main(secret,player):
 # convert movie into code   
 def getvowels(secret):
     sec=""
-    vow=('a','e','i','o','u')
+    vow=('A','E','I','O','U')
     for i in secret:
         if i in vow:
             sec += i + " "
@@ -183,9 +204,18 @@ def getvowels(secret):
 # ALL FUCNTIONS USED HAVE BEEN DEFINED
     
 # DRIVER CODE
+from tkinter import *
+import time
+import turtle
+import getpass
+
+j = turtle.Screen()
+
 # p1's turn
+
 flag=1
-while(flag==1):            
+while(flag==1):
+    j.clear()
     name1 = input("Player 1, What is your name? ")
     print("Hello ", name1)
 
@@ -199,10 +229,11 @@ while(flag==1):
         
         b = ""
         secret1 = getpass.getpass("Enter a movie: \n*the movie name will remain hidden due to obvious reasons!!* \n ")
+        secret1 = secret1.upper()
         
         for i in secret1:
             
-            if i not in ("abcdefghijklmnopqrstuvwxyz 0123456789"):
+            if i not in ("ABCDEFGHIJKLMNOPQRSTUVWXYZ 0123456789"):
                 print("ENTER ONLY ALPHABETS OR NUMBERS, CHARACTERS ARE NOT ALLOWED! /n")
                 break
             else:
@@ -229,10 +260,11 @@ while(flag==1):
         
         b = ""
         secret2 = getpass.getpass("Enter a movie: \n*the movie name will remain hidden due to obvious reasons!!* \n ")
+        secret2 = secret2.upper()
         
         for i in secret2:
             
-            if i not in ("abcdefghijklmnopqrstuvwxyz 0123456789"):
+            if i not in ("ABCDEFGHIJKLMNOPQRSTUVWXYZ 0123456789"):
                 print("ENTER ONLY ALPHABETS OR NUMBERS, CHARACTERS ARE NOT ALLOWED! /n")
                 break
             else:
@@ -253,7 +285,7 @@ while(flag==1):
     print("Let's see who won...")
     time.sleep(1)
     print("DRUMROLL................")
-    time.sleep(5)
+    time.sleep(3)
     if(points1>points2):
         print(name1," has won!")
     elif(points2>points1):
@@ -264,8 +296,8 @@ while(flag==1):
     inp=0
     while(inp==0):
         loo=input()
-        print(loo)
         if loo=='y'or loo=='Y':
+            print("\n ALRITE MATE-Y")
             flag=1
             inp=1
         elif loo=='n' or loo=='N':
@@ -278,8 +310,6 @@ while(flag==1):
     if flag==0:
         print("see ya later")
 
-# vowelonly as amovie name
-# case sensitivity
 # audio and bgcolor for deaths
 # grammar typos
 
@@ -287,6 +317,7 @@ while(flag==1):
 
 # IMPORTANT DATA TO BE TRANSFERRED TO MYSQL
 # [TIME ELEMENT, HINT ELEMENT, ALL OF TKINTER] = LEFT
-# THIS CODE AFTER COMPLETION IS THEN TO BE LOOPED
 # DEFINITELY NOT MAKING SO MANY NOTES SO WE CAN REACH 500 LINES OF CODE FASTER. DEFINITELY, MAYBE.
 
+
+    
