@@ -1,57 +1,36 @@
 import mysql.connector as mycon
-con=mycon.connect(host="local host",username="root",passwd="ayush",database="project")
+con =mycon.connect(host="localhost",user="root",passwd="ayush" )  #isme apna mysql password use karlio
+cur = con.cursor()
+cur.execute("SHOW DATABASES")
+flag=False
+for dbname in cur:
+    if("project" in dbname):
+        flag=True
+        break
+if not flag:
+    cur.execute("Create database if not exists project")
+    print("database project created")
+else:
+    print("database project already exists")
+
+con=mycon.connect(host="localhost",username="root",passwd="ayush",database="project") #same as above
 if con.is_connected():
-    print("database opened successfully")
+    print("database opened")
 else:
     print("error opening database")
 
-str1="create table student(Serial_No int primary key, Player Name varchar(30), Wins int, Losses int, Tie int, Hints_used int)"
+str1="CREATE TABLE Scoreboard2 (player_name varchar(30), wins int)"
 cur=con.cursor()
 cur.execute(str1)
 print("table created successfully")
- 
- # this is for table creation
- 
- #next code is for saving highscore data through a txt file kyunki ma'am ne bola tha ki voh bhi add karna hai somehow.Yeh sirf functions hai.
- #highscore wale code mein bas input daalne baaki hai warna code complete hai. Input wala part jab hojaaye usse bas add karna hai.
- 
-def get_high_score():
-    high_score = 0
- 
-    try:
-        high_score_file = open("high_score.txt", "r")
-        high_score = int(high_score_file.read())
-        high_score_file.close()
-        print("The high score is", high_score)
-    except IOError:
 
-        print("There is no high score yet.")
-    except ValueError:
-        print(" Starting with no high score.")
- 
-    return high_score
- 
- 
-def save_high_score(new_high_score):
-    try:
-        high_score_file = open("high_score.txt", "w")
-        high_score_file.write(str(new_high_score))
-        high_score_file.close()
-    except IOError:
-        print("Unable to save the high score.")
- 
- 
-def main():
-    high_score = get_high_score()
-    current_score = 0
-    try:
-        current_score = int(input("What is your score? "))
-    except ValueError:
-        print("Not able to understand")
- 
-    
-    if current_score > high_score:
-        print("Yea! New high score!")
-        save_high_score(current_score)
-    else:
-        print("Better luck next time.")
+str2="insert into Scoreboard2 values(),()"     #idhar maine variables ke lie space choda hai
+cur.execute(str2)
+con.commit()
+print("record inserted successfully")
+
+
+
+
+
+
