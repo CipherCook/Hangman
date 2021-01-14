@@ -146,8 +146,8 @@ else:
 
 print("table created successfully")
 
-str2="insert into Scoreboard2 values ("{}",{})".format(name1,points1)
-str3="insert into Scoreboard2 values ("{}",{})".format(name2,points2)
+str2="insert into Scoreboard2 values ('{}',{})".format(name1,points1)
+str3="insert into Scoreboard2 values ('{}',{})".format(name2,points2)
 
 cur.execute(str2)
 cur.execute(str3)
